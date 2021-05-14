@@ -27,12 +27,12 @@
             <ul v-for="movie in completeList">
                 <li>Titolo: {{movie.title}}</li>
                 <li>Titolo Originale: {{movie.original_title}}</li>
-                <li v-for="(vote, element) in stelline" :class="{'star_vote': mediaVoto(movie, element)}"class='fas fa-star stella'><li>
                 <li>Lingua originale: {{movie.original_language}} <div class="flag-icon" :class="flagResult(movie.original_language)"></div></li>
+                <li v-for="(vote, element) in stelline" :class="{'star_vote': mediaVoto(movie, element)}"class='fas fa-star stella'><li>
+                <li> <img :src="posterMovie(movie.poster_path)"></li>
                 <br>
             </ul>
             <br>
-            
         </div>
 
         <script src="script.js"></script>

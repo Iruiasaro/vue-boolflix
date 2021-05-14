@@ -8,8 +8,7 @@ var root = new Vue({
         filmList: [],
         tvSeriesList: [],
         stelline: ['1', '2', '3', '4', '5'],
-        defaultFlag: "flag-icon-default",
-
+        posterSize: "w342",
     },
 
     methods: {
@@ -27,7 +26,6 @@ var root = new Vue({
 
                 case ("Tv-Series"):
                     this.tvSeriesSearch()
-
                     break;
 
                 case (""):
@@ -83,14 +81,6 @@ var root = new Vue({
                 })
         },
 
-        mediaVoto(movie, element) {
-            const voteAverage = Math.round(movie.vote_average / 2)
-            if ((element + 1) <= voteAverage) {
-                return true
-            }
-            return false
-        },
-
         flagResult(language) {
             const langCountry = {
                 "ar" : ["ar"],
@@ -109,5 +99,24 @@ var root = new Vue({
             
             return `flag-icon-${langCountry[language][0]}`;
         },
+
+        posterMovie(path) {
+            if (path == null) {
+                return "";
+            }
+
+            return `https://image.tmdb.org/t/p/${this.posterSize}${path}`;
+
+        },
+
+        mediaVoto(movie, element) {
+            const voteAverage = Math.round(movie.vote_average / 2)
+            if ((element + 1) <= voteAverage) {
+                return true
+            }
+            return false
+        },
+
+       
     },
 })
