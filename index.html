@@ -1,4 +1,4 @@
-<!DOCitem html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -20,20 +20,19 @@
     <body>
         <div id="root">
 
-            <select v-model="itemToSearch">
+            <select v-model="searchText">
                 <option value="" selected>Film - TvSeries</option>
                 <option :value="item" v-for="item in itemsList">{{item}}</option>
             </select>
 
-            <input item="text" v-model="userInput" @click="research()">
-            <button>Search</button>
+            <input @keyup.enter="research()" v-model="userInput">
+            <button  @click="research()">Search</button>
 
             <ul v-for="movie in completeList">
-            
-                <li>{{movie.title}}</li>
-                <li>{{movie.original_title}}</li>
-                <li>{{movie.vote_average}}</li>
-                    
+                <li>Titolo: {{movie.title}}</li>
+                <li>Titolo Originale: {{movie.original_title}}</li>
+                <li>Votazione media:{{movie.vote_average}}</li>
+                <br>
             </ul>
             
         </div>

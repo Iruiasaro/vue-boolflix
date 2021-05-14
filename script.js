@@ -2,21 +2,34 @@ var root = new Vue({
     el: "#root",
     data: {
         completeList: [],
-        itemToSearch: "",
-        itemsList: ["Film"],
+        searchText: "",
+        itemsList: ["Film", "Tv-Series"],
         userInput: "",
         filmList: [],
+        tvSeriesList: [],
     },
 
     methods: {
+
         research() {
             this.completeList = []
             this.filmList = []
+            this.tvSeriesList = []
 
-            switch (this.itemToSearch) {
+            switch (this.searchText) {
 
                 case ("Film"):
                     this.movieSearch()
+                    break;
+
+                case ("Tv-Series"):
+                    this.tvSeriesSearch()
+                 
+                    break;
+
+                case (""):
+                    this.movieSearch()
+                    this.tvSeriesSearch()
                     break;
             }
             this.userInput = ""
@@ -32,6 +45,7 @@ var root = new Vue({
             }
             axios.get("https://api.themoviedb.org/3/search/movie", query)
                 .then((resp) => {
+
                     const filmList = resp.data.results.map((movie) => {
                         movie.item = "Film"
                         return movie
@@ -39,7 +53,30 @@ var root = new Vue({
                     filmList.forEach((index) => {
                         this.filmList.push(index);
                         this.completeList.push(index);
-                    });
+                    })
+                })
+        },
+
+        tvSeriesSearch() {
+            const query = {
+                params: {
+                    api_key: "7f8768df3edb2759e1b611780d7158c5",
+                    query: this.userInput,
+                    language: "it-IT",
+                }
+            }
+            axios.get("https://api.themoviedb.org/3/search/tv", query)
+                .then((resp) => {
+                    const tvSeriesList = resp.data.results.map((tvSeries) => {
+                        tvSeries.item = "seriesTv"
+                        tvSeries.title = tvSeries.name
+                        tvSeries.original_title = tvSeries.original_name
+                        return tvSeries
+                    })
+                    tvSeriesList.forEach((index) => {
+                        this.tvSeriesList.push(index);
+                        this.completeList.push(index);
+                    })
                 })
         },
     },
