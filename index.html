@@ -4,15 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
-       
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-       
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
         <title>BoolFlix</title>
     </head>
@@ -31,8 +27,7 @@
             <ul v-for="movie in completeList">
                 <li>Titolo: {{movie.title}}</li>
                 <li>Titolo Originale: {{movie.original_title}}</li>
-                <li>Votazione media:{{movie.vote_average}}</li>
-                <br>
+                    <li v-for="(vote, element) in stelline" :class="{'star_vote': mediaVoto(movie, element)}"class='fas fa-star stella' ></li>
             </ul>
             
         </div>

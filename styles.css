@@ -8,3 +8,11 @@ body {
     margin-top: 19px;
     text-align: center;
 }
+
+.stella {
+    color: lightgray;
+}
+
+.star_vote{
+    color: rgb(255, 223, 40);
+}

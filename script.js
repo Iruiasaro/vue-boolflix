@@ -7,6 +7,7 @@ var root = new Vue({
         userInput: "",
         filmList: [],
         tvSeriesList: [],
+        stelline: ['1', '2', '3', '4', '5'],
     },
 
     methods: {
@@ -24,7 +25,7 @@ var root = new Vue({
 
                 case ("Tv-Series"):
                     this.tvSeriesSearch()
-                 
+
                     break;
 
                 case (""):
@@ -78,6 +79,14 @@ var root = new Vue({
                         this.completeList.push(index);
                     })
                 })
+        },
+
+        mediaVoto(movie, element) {
+            const voteAverage = Math.round(movie.vote_average / 2)
+            if ((element + 1) <= voteAverage) {
+                return true
+            }
+            return false
         },
     },
 })
