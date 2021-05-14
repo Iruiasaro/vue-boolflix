@@ -8,6 +8,8 @@ var root = new Vue({
         filmList: [],
         tvSeriesList: [],
         stelline: ['1', '2', '3', '4', '5'],
+        defaultFlag: "flag-icon-default",
+
     },
 
     methods: {
@@ -87,6 +89,25 @@ var root = new Vue({
                 return true
             }
             return false
+        },
+
+        flagResult(language) {
+            const langCountry = {
+                "ar" : ["ar"],
+                "en" : ["us", "gb",],
+                "es" : ["es", "ar",],
+                "fr" : ["fr",],
+                "da" : ["da"],
+                "de" : ["de", "be",],
+                "it" : ["it",],
+                "pt" : ["pt"],
+            };
+
+            if (!langCountry[language]) {
+                return this.defaultFlag;
+            }
+            
+            return `flag-icon-${langCountry[language][0]}`;
         },
     },
 })
