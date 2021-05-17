@@ -13,19 +13,21 @@
         <title>BoolFlix</title>
     </head>
 
-    <body>          
+    <body>
         <div id="root">
+            <!-- inserimento titolo e barra di ricerca -->
             <header>
                 <h1>BoolFlix</h1>
                 <div class="nav_search">
                     <input @keyup.enter="research()" v-model="userInput">
                 </div>
             </header>
-
+            <!-- contenuto cards film e serie tv -->
             <main>
                 <div class="wrap_cards">
                         <div class="card" v-for="movie in completeList">
-                            <div class="card-info">
+                            <div class="text_card">
+                                <!-- inserisce titoli, lingue e bandiere -->
                                 <div>Titolo: {{movie.title}}</div>
                                 <br>
                                 <div>Titolo Originale: {{movie.original_title}}</div>
@@ -37,13 +39,14 @@
                                 <br>
                                 <div class="overview"><strong>Overview: </strong>{{movie.overview}}</div>
                             </div>
+                            <!-- inserimento img locandina -->
                         <div class="posterimg"><img :src="posterMovie(movie)">
                         </div>
-                    </div> 
+                    </div>
                     </div>
                 </div>
 
-               
+
 
 
             </main>

@@ -13,15 +13,7 @@ body {
     background-color: rgb(85, 85, 85);
 }
 
-.stella {
-    color: lightgray;
-    display: inline-block;
-}
-
-.star_vote{
-    color: rgb(255, 223, 40);
-}
-
+/* header section */
 header {
     color: rgb(211, 1, 1);
     text-transform: uppercase;
@@ -33,6 +25,16 @@ header {
     align-items: center;
 }
 
+input {
+    height: 35px;
+    text-align: right;
+    text-transform: uppercase;
+    width: 250px;
+}
+
+
+
+/* main-section */
 main {
     height: 100vh;
 }
@@ -49,36 +51,43 @@ main {
     justify-content: space-around;
 }
 
-input {
-    height: 35px;
-    width: 300px;
-    text-align: right;
-    text-transform: uppercase;
-}
+
 
 .card{
     background-color: black;
     margin: 15px 15px;
-    width: 400px;
     color: honeydew;
     text-align: center;
+    width: 400px;
+}
+
+
+/* contenuto card */
+.text_card{
+    display: none;
+   margin-top: 30px;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
 }
 
 .card li {
     padding: 5px;
 }
 
+/* /votazione stelle */
 
-.card-info{
-    top: 20px;
-    left: 10px;
-    color: white;
-    display: none;
-    padding: 10px;
-    font-size: 15px;
+.stella {
+    color: lightgray;
+    display: inline-block;
 }
 
-.card:hover .card-info{
+.star_vote{
+    color: rgb(255, 223, 40);
+}
+
+/* sezione hover */
+.card:hover .text_card{
     display: block;
 }
 

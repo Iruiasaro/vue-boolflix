@@ -10,6 +10,7 @@ var root = new Vue({
     },
 
     methods: {
+        // FUNZIONE DI RICERCA 
         research() {
             this.completeList = []
             this.filmList = []
@@ -32,7 +33,7 @@ var root = new Vue({
             }
             this.userInput = ""
         },
-
+        // FILM
         movieSearch() {
             const query = {
                 params: {
@@ -54,7 +55,7 @@ var root = new Vue({
                     })
                 })
         },
-
+        // SERIE TV
         tvSeriesSearch() {
             const query = {
                 params: {
@@ -77,11 +78,11 @@ var root = new Vue({
                     })
                 })
         },
-
+        // bandierine funzione 
         flagResult(movie) {
             const langCountry = {
                 en: "us",
-                ja: "jp", 
+                ja: "jp",
                 cs: "cz",
             };
             if (langCountry[movie.original_language]) {
@@ -91,6 +92,7 @@ var root = new Vue({
             }
         },
 
+        // funzione inserimento locandina 
         posterMovie(movie) {
             if (movie.poster_path) {
                 return `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
@@ -99,6 +101,7 @@ var root = new Vue({
             }
         },
 
+        // media voto
         mediaVoto(movie, element) {
             const voteAverage = Math.round(movie.vote_average / 2)
             if ((element + 1) <= voteAverage) {
