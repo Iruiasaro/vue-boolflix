@@ -8,11 +8,9 @@ var root = new Vue({
         filmList: [],
         tvSeriesList: [],
         stelline: ['1', '2', '3', '4', '5'],
-        posterSize: "w342",
     },
 
     methods: {
-
         research() {
             this.completeList = []
             this.filmList = []
@@ -83,11 +81,12 @@ var root = new Vue({
 
         flagResult(movie) {
             const langCountry = {
-                en: "en"
+                en: "us",
+                ja: "jp", 
+                cs: "cz",
             };
-
             if (langCountry[movie.original_language]) {
-                return this.flagResult[movie.original_language];
+                return langCountry[movie.original_language];
             } else {
                 return movie.original_language;
             }
@@ -96,7 +95,7 @@ var root = new Vue({
         posterMovie(movie) {
             if (movie.poster_path) {
                 return `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
-            }   else {
+            } else {
                 return "prova.jpg";
             }
         },

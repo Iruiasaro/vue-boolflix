@@ -32,10 +32,6 @@ header {
     align-items: center;
 }
 
-.nav_search {
-    
-}
-
 main {
     height: 100vh;
 }
@@ -50,6 +46,7 @@ main {
 }
 
 .wrap_cards{
+    background-color: rgb(85, 85, 85);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
