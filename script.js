@@ -3,7 +3,6 @@ var root = new Vue({
     data: {
         completeList: [],
         searchText: "",
-        itemsList: ["Film", "Tv-Series"],
         userInput: "",
         filmList: [],
         tvSeriesList: [],

@@ -15,6 +15,7 @@ body {
 
 .stella {
     color: lightgray;
+    display: inline-block;
 }
 
 .star_vote{
@@ -41,10 +42,6 @@ main {
     text-align: center;
 }
 
-.wrap {
-    background-color: rgb(85, 85, 85);
-}
-
 .wrap_cards{
     background-color: rgb(85, 85, 85);
     display: flex;
@@ -52,19 +49,39 @@ main {
     justify-content: space-around;
 }
 
-.clearfix::after{
-    content: "";
-    display: table;
-    clear: both;
+input {
+    height: 35px;
+    width: 300px;
+    text-align: right;
+    text-transform: uppercase;
 }
 
 .card{
-    position: relative;
     background-color: black;
-    margin: 15px 0;
+    margin: 15px 15px;
     width: 400px;
     color: honeydew;
     text-align: center;
-    list-style:none;
 }
 
+.card li {
+    padding: 5px;
+}
+
+
+.card-info{
+    top: 20px;
+    left: 10px;
+    color: white;
+    display: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.card:hover .card-info{
+    display: block;
+}
+
+.card:hover .posterimg {
+    display: none;
+}
