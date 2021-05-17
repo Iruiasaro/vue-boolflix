@@ -6,8 +6,11 @@
 
 body {
     margin-top: 19px;
-    text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+    background-color: rgb(85, 85, 85);
 }
 
 .stella {
@@ -17,4 +20,54 @@ body {
 .star_vote{
     color: rgb(255, 223, 40);
 }
-     
+
+header {
+    color: rgb(211, 1, 1);
+    text-transform: uppercase;
+    font-size: 39px;
+    font-weight: 900;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav_search {
+    
+}
+
+main {
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    text-align: center;
+}
+
+.wrap {
+    background-color: rgb(85, 85, 85);
+}
+
+.wrap_cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.card{
+    position: relative;
+    background-color: black;
+    margin: 15px 0;
+    width: 400px;
+    color: honeydew;
+    text-align: center;
+    list-style:none;
+}
+

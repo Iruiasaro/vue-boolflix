@@ -81,32 +81,24 @@ var root = new Vue({
                 })
         },
 
-        flagResult(language) {
+        flagResult(movie) {
             const langCountry = {
-                "ar" : ["ar"],
-                "en" : ["us", "gb",],
-                "es" : ["es", "ar",],
-                "fr" : ["fr",],
-                "da" : ["da"],
-                "de" : ["de", "be",],
-                "it" : ["it",],
-                "pt" : ["pt"],
+                en: "en"
             };
 
-            if (!langCountry[language]) {
-                return this.defaultFlag;
+            if (langCountry[movie.original_language]) {
+                return this.flagResult[movie.original_language];
+            } else {
+                return movie.original_language;
             }
-            
-            return `flag-icon-${langCountry[language][0]}`;
         },
 
-        posterMovie(path) {
-            if (path == null) {
-                return "";
+        posterMovie(movie) {
+            if (movie.poster_path) {
+                return `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
+            }   else {
+                return "prova.jpg";
             }
-
-            return `https://image.tmdb.org/t/p/${this.posterSize}${path}`;
-
         },
 
         mediaVoto(movie, element) {
@@ -116,7 +108,5 @@ var root = new Vue({
             }
             return false
         },
-
-       
     },
 })

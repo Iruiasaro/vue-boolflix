@@ -13,26 +13,38 @@
         <title>BoolFlix</title>
     </head>
 
-    <body>
+    <body>          
         <div id="root">
+            <header>
+                <h1>BoolFlix</h1>
+                <div class="nav_search">
+                    <select v-model="searchText">
+                        <option value="" selected>Film - TvSeries</option>
+                        <option :value="item" v-for="item in itemsList">{{item}}</option>
+                    </select>
+                    <input @keyup.enter="research()" v-model="userInput">
+                    <button  @click="research()">Search</button>
+                </div>
+            </header>
 
-            <select v-model="searchText">
-                <option value="" selected>Film - TvSeries</option>
-                <option :value="item" v-for="item in itemsList">{{item}}</option>
-            </select>
-
-            <input @keyup.enter="research()" v-model="userInput">
-            <button  @click="research()">Search</button>
-
-            <ul v-for="movie in completeList">
-                <li>Titolo: {{movie.title}}</li>
-                <li>Titolo Originale: {{movie.original_title}}</li>
-                <li>Lingua originale: {{movie.original_language}} <div class="flag-icon" :class="flagResult(movie.original_language)"></div></li>
-                <li v-for="(vote, element) in stelline" :class="{'star_vote': mediaVoto(movie, element)}"class='fas fa-star stella'><li>
-                <li> <img :src="posterMovie(movie.poster_path)"></li>
-                <br>
-            </ul>
-            <br>
+            <main>
+                <div class="wrap_cards clearfix">
+                       
+            
+                        <ul class="card" v-for="movie in completeList">
+                            <li>Titolo: {{movie.title}}</li>
+                            <li>Titolo Originale: {{movie.original_title}}</li>
+                            <li>Lingua originale: {{movie.original_language}} <div class="flag-icon" :class="`flag-icon-${flagResult(movie)}`"></div></li>
+                            <li v-for="(vote, element) in stelline" :class="{'star_vote': mediaVoto(movie, element)}"class='fas fa-star stella'><li>
+                            <li> <img :src="posterMovie(movie)"></li>
+                            <br>
+                        </ul>
+                        <br>
+                    
+                </div>
+                
+            </main>
+            
         </div>
 
         <script src="script.js"></script>
