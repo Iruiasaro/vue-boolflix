@@ -5,7 +5,6 @@
 }
 
 body {
-    margin-top: 19px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -31,7 +30,6 @@ input {
     text-transform: uppercase;
     width: 250px;
 }
-
 
 
 /* main-section */
